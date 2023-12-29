@@ -1,0 +1,244 @@
+/* format styling */
+*,
+html,
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* color palette */
+:root {
+    --bg-men: #D6E6FF;
+    --bg-women: #FDE2FF;
+    --bg-unavailable: #DCDCDC;
+    --men-color: #002772;
+    --women-color: #720060;
+    --white: #FFFFFF;
+    --text-netral: #1E1E1E;
+    --shadow: #3F3F3F;
+}
+
+/* class styling */
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white-color);
+}
+
+.box {
+    width: 85%;
+    height: 75vh;
+    display: flex;
+    gap: 44px;
+    padding: 44px;
+    border-radius: 14px;
+    background-color: var(--white);
+    box-shadow: 0 4px 6px -1px var(--shadow), 0 8px 10px -6px var(--shadow);
+    z-index: 5;
+}
+
+.description {
+    display: grid;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.button {
+    display: flex;
+    justify-content: end;
+    gap: 8px;
+}
+
+.text-netral {
+    color: var(--text-netral);
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    background-color: var(--bg-unavailable);
+}
+
+/* men section styling */
+.bg-men {
+    width: 100%;
+    height: 65vh;
+    position: absolute;
+    top: 0;
+    background-color: var(--bg-men);
+}
+
+.title-men {
+    color: var(--men-color);
+}
+
+.price-men {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--men-color);
+}
+
+.buy-now-men {
+    color: var(--white);
+    background-color: var(--men-color);
+}
+
+.next-product-men {
+    color: var(--men-color);
+    background-color: var(--white);
+    border: solid 2px var(--men-color);
+}
+
+/* women section styling */
+.bg-women {
+    width: 100%;
+    height: 65vh;
+    position: absolute;
+    top: 0;
+    background-color: var(--bg-women);
+}
+
+.title-women {
+    color: var(--women-color);
+}
+
+.price-women {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--women-color);
+}
+
+.buy-now-women {
+    color: var(--white);
+    background-color: var(--women-color);
+}
+
+.next-product-women {
+    color: var(--women-color);
+    background-color: var(--white);
+    border: solid 2px var(--women-color);
+}
+
+/* unavailable section styling */
+.box-unavailable {
+    width: 85%;
+    height: 75vh;
+    position: relative;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    gap: 14px;
+    border-radius: 14px;
+    background-color: var(--white);
+    box-shadow: 0 4px 6px -1px var(--shadow), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    z-index: 5;
+}
+
+.bg-unavailable {
+    width: 100%;
+    height: 65vh;
+    position: absolute;
+    top: 0;
+    background-color: var(--bg-unavailable );
+}
+
+.svg {
+    position: absolute;
+    top: 33px;
+    left: 140px;
+}
+
+.next-product-unavailable {
+    color: var(--text-netral);
+    background-color: var(--white);
+    border: solid 2px var(--text-netral);
+    z-index: 5;
+}
+
+/* doted rating styling */
+.rating-dotted {
+    display: flex;
+    padding-top: 1px;
+    gap: 2px;
+}
+
+.dotted {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+}
+
+.dotted-none {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--white);
+}
+
+/* men rating dotted */
+.men-dotted {
+    background-color: var(--men-color);
+}
+
+.men-dotted-none {
+    border: solid 1px var(--men-color);
+}
+
+/* women rating dotted */
+.women-dotted {
+    background-color: var(--women-color);
+}
+
+.women-dotted-none {
+    border: solid 1px var(--women-color);
+}
+
+/* tag styling */
+button {
+    width: 200px;
+    height: 35px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+/* loader styling */
+.loader {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    z-index: 15;
+}
+
+.spin {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    border: 16px dotted var(--shadow);
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
