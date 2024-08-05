@@ -23,7 +23,7 @@
                                 <span :class="{'dotted': threeDotted, 'dotted-none': !threeDotted, 'men-dotted': isMenCategory && threeDotted, 'women-dotted': isWomenCategory && threeDotted, 'men-dotted-none': isMenCategory && oneDotted, 'women-dotted-none': isWomenCategory && oneDotted}"></span>
 
                                 <span :class="{'dotted': fourDotted, 'dotted-none': !fourDotted, 'men-dotted': isMenCategory && fourDotted, 'women-dotted': isWomenCategory && fourDotted, 'men-dotted-none': isMenCategory && oneDotted, 'women-dotted-none': isWomenCategory && oneDotted}"></span>
-                                
+
                                 <span :class="{'dotted': fiveDotted, 'dotted-none': !fiveDotted, 'men-dotted': isMenCategory && fiveDotted, 'women-dotted': isWomenCategory && fiveDotted, 'men-dotted-none': isMenCategory && oneDotted, 'women-dotted-none': isWomenCategory && oneDotted}"></span>
                             </div>
                         </div>
@@ -33,8 +33,8 @@
                     <span class="line"></span>
                     <p :class="{'price-men': isMenCategory, 'price-women': isWomenCategory}">${{ dataProduct.price }}</p>
                     <div class="button">
-                        <button :class="{'buy-now-men': isMenCategory, 'buy-now-women': isWomenCategory}">Buy now</button>
-                        <button :class="{'next-product-men': isMenCategory, 'next-product-women': isWomenCategory}" @click="nextProduct">Next product</button>
+                        <button :class="{'buy-now-men': isMenCategory, 'buy-now-women': isWomenCategory}" @click="prevProduct">Previous Product</button>
+                        <button :class="{'next-product-men': isMenCategory, 'next-product-women': isWomenCategory}" @click="nextProduct">Next Product</button>
                     </div>
                 </div>
             </div>
@@ -59,7 +59,8 @@
                     </svg>
                 </div>
                 <p>This product is unavailable to show</p>
-                <button class="next-product-unavailable" @click="nextProduct">Next product</button>
+                <button class="next-product-unavailable" @click="nextProduct">Next Product</button>
+                <button class="next-product-unavailable" @click="prevProduct">Previous Product</button>
             </div>
         </div>
     </div>
@@ -112,6 +113,16 @@ export default {
 
             this.fetchData()
         },
+        // fungsi untuk button prev product
+        prevProduct() {
+            if (this.currentIndex !== 1) {
+                this.currentIndex--
+            } else {
+                this.currentIndex = 1
+            }
+
+            this.fetchData()
+        },
     },
     computed: {
         // pengkondisian untuk page section berdasarkan kategori
@@ -122,7 +133,7 @@ export default {
             return this.dataCategory === "women's clothing"
         },
 
-        // penngkondisian untuk rating
+        // pengkondisian untuk rating
         oneDotted() {
             return this.dataRating > "1"
         },
